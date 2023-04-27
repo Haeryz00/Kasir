@@ -6,7 +6,7 @@ import barang.item;
 public class lampu extends item implements elektronik{
 
     @Override
-    public double getDiscountedPrice() {
+    public int getDiscountedPrice() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getDiscountedPrice'");
     }

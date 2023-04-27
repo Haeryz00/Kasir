@@ -19,8 +19,19 @@ public class piano<t> extends item<t> implements musik{
     public void setModelP(t brand){
         setBrand(brand);
     }
+
+    public boolean getSale(){
+        return getSale();
+    }
+
+    public void setSale(t sale){
+        setSale(sale);
+    }
+
+    
+
     @Override
-    public double getDiscountedPrice() {
+    public int getDiscountedPrice() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getDiscountedPrice'");
     }
