@@ -35,7 +35,6 @@ public abstract class item<T> {
         return discount;
     }
 
-    public abstract double getDiscountedPrice();
-
+    public abstract int getDiscountedPrice();
     public abstract int getPrice();
 }
