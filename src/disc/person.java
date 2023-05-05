@@ -1,16 +1,8 @@
 package disc;
 
-public abstract class person<t> {
-    public String nama;
+public abstract class person {
+    private String name;
 
-
-    public t getNama() {
-        return (t) nama;
-    }
-
-    public void setNama(t nama) {
-        this.nama = (String) nama;
-    }
-
-    public abstract double getMebershipdisc();
+    public void setName(String name){this.name = name;}
+    public String getName(){return this.name;}
 }

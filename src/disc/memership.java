@@ -1,7 +1,6 @@
 package disc;
 
 public interface memership {
-    public double premium_disc = 0.1;
-    public double gold_disc = 0.075;
-    public double silver_disc = 0.05;
+    public float premium_disc = 0.1F, gold_disc = 0.075F, silver_disc = 0.05F;
+    float getMembershipDiscount();
 }

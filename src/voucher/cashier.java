@@ -1,29 +1,42 @@
 package voucher;
 
+import disc.orang.karyawan;
+import disc.orang.pelanggan;
+
 public class cashier {
-    public double currentPrice;
-    public double currentDiscount[];
-    public double total;
-    public voucher voucher[];
+    karyawan karyawan = new karyawan();
+    pelanggan pelanggan = new pelanggan();
 
+    float currentPrice, currentDiscount=0, total, memberDiscount;
+    String name = "", memberType = "Tidak ada";
 
-    public void addPrice (double price){
-
+    float getTotal(){
+        this.total = currentPrice - (currentPrice * currentDiscount);
+        return this.total;
     }
-
-    public void addDisc (double disc){
-
+    void setPrice(float price){this.currentPrice += price;}
+    void setDisc(float disc){
+        currentDiscount = Float.sum(currentDiscount,disc);
     }
+    String getMemberType(){return memberType;}
 
-    public void addVoucher(String code){
-
+    public void setName(String name) {
+        this.name = name;
     }
-
-    public double getTotal(){
-        return total;
+    public float getMembershipDiscount(){
+        return memberDiscount;
     }
-
-    public void setTotal(){
-        this.total = total;
+    public void isKaryawan(){
+        setDisc(karyawan.getMembershipDiscount());
+        memberDiscount = karyawan.getMembershipDiscount();}
+    public Boolean isMember(){
+        if(pelanggan.isPelanggan(name) == Boolean.TRUE){
+            this.memberType = pelanggan.getMemberType();
+            setDisc(pelanggan.getMembershipDiscount());
+            memberDiscount = pelanggan.getMembershipDiscount();
+            return Boolean.TRUE;
+        }else {
+            return Boolean.FALSE;
+        }
     }
 }
