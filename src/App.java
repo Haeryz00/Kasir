@@ -116,7 +116,7 @@ public class App {
                 break;
         }
     }
-    //beli membership
+    //beli membershipu
     //input voucher ex : input code ditusi
     
     

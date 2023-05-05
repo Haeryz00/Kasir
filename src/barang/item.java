@@ -1,40 +1,34 @@
 package barang;
 
-public abstract class item<T> {
-    private String brand;
-    private String model;
-    private int price;
-    private boolean onSale;
-    private double discount;
+public abstract class item {
+    private String brand, model;
+    private int price, stock;
+    private float discount;
+    private Boolean onSale;
 
-    public T getBrand() {
-        return (T) brand;
+    public void setBrand(String brand){this.brand = brand;}
+    public String getBrand(){return brand;}
+
+    public void setModel(String model){this.model = model;}
+    public String getModel(){return model;}
+
+    public void setPrice(int price){this.price = price;}
+    public int getPrice(){
+        if(getOnSale() == Boolean.TRUE){
+            return (int) (this.price - (this.price * getDiscount()));
+        }else {
+            return this.price;
+        }
     }
 
-    public void setBrand(T brand) {
-        this.brand = (String) brand;
-    }
+    public void setStock(int stock){this.stock = stock;}
+    public int getStock(){return stock;}
 
-    public T getModel() {
-        return (T) model;
-    }
+    public void setDiscount(float discount){this.discount = discount;}
+    public float getDiscount(){return discount;}
 
-    public void setModel(T model) {
-        this.model = (String) model;
-    }
+    public void setOnSale(Boolean onSale){this.onSale = onSale;}
+    public Boolean getOnSale(){return onSale;}
 
-    public boolean isOnSale() {
-        return onSale;
-    }
-
-    public void setOnSale(T onSale) {
-        this.onSale = (boolean) onSale;
-    }
-
-    public double getDiscount() {
-        return discount;
-    }
-
-    public abstract int getDiscountedPrice();
-    public abstract int getPrice();
 }
+
