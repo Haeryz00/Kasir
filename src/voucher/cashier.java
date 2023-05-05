@@ -10,15 +10,15 @@ public class cashier {
     float currentPrice, currentDiscount=0, total, memberDiscount;
     String name = "", memberType = "Tidak ada";
 
-    float getTotal(){
+    public float getTotal(){
         this.total = currentPrice - (currentPrice * currentDiscount);
         return this.total;
     }
-    void setPrice(float price){this.currentPrice += price;}
-    void setDisc(float disc){
+    public void setPrice(float price){this.currentPrice += price;}
+    public void setDisc(float disc){
         currentDiscount = Float.sum(currentDiscount,disc);
     }
-    String getMemberType(){return memberType;}
+    public String getMemberType(){return memberType;}
 
     public void setName(String name) {
         this.name = name;

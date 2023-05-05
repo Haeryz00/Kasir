@@ -4,7 +4,7 @@ import barang.elektronik;
 import barang.item;
 
 public class lampu extends item implements elektronik{
-    lampu(){
+    public lampu(){
         setOnSale(Boolean.TRUE);
         setDiscount(0.5F);
         setBrand("Philip");

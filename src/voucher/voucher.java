@@ -7,7 +7,7 @@ public class voucher {
     private Calendar kalender = Calendar.getInstance();
     float[] discount = {0.5F,0.15F};
 
-    float getdiscount(String code1){
+    public float getdiscount(String code1){
         kalender.set(2022,03,12);
         Date expired1 = kalender.getTime();
         kalender.set(2023,07,12);
