@@ -11,5 +11,10 @@ public class lampu extends item implements elektronik{
         setModel("RGB lamp");
         setPrice(150000);
         setStock(100);
-    }    
+    }
+
+    @Override
+    public void updateStock(int quantity){
+        super.updateStock(quantity);
+    }
 }

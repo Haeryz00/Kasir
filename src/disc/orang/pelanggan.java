@@ -6,7 +6,7 @@ import disc.person;
 
 public class pelanggan extends person implements memership{
     String memberType;
-    String[][] pelanggan = {{"Syarif","pikachu","Eleanor"}, {"Premium","Gold","Silver"}};
+    String[][] pelanggan = {{"Rusdi","Fuad","Eleanor"}, {"Premium","Gold","Silver"}};
 
     public Boolean isPelanggan(String namer) {
         for (int i = 0; i < pelanggan[0].length; i++) {

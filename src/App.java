@@ -10,8 +10,8 @@ public class App {
         System.out.println("Masukkan input yang benar!\n");
     }
     public static void main(String[] args) {
-        piano gitar = new piano();
-        lampu gitarElektrik = new lampu();
+        piano piano = new piano();
+        lampu lampu = new lampu();
         cashier kasir = new cashier();
         Scanner input = new Scanner(System.in);
         voucher vocer = new voucher();
@@ -21,6 +21,10 @@ public class App {
         float diskon;
         int item,stock=0,stockUser,ulang = 1, duit, total = 0;
         String nama="",membertype="",namaitem="";
+
+        stockUser = 0;
+
+        stock -= stockUser;
 
         while (ulang == 1){
             while (ulang == 1){
@@ -50,8 +54,8 @@ public class App {
 
                 System.out.println("Selamat datang tuan/putri "+ nama);
                 System.out.println("\nItem yang tersedia: ");
-                System.out.printf("1.Gitar \nBrand: %s \nModel: %s\nHarga: %d\nStock: %d\nDiscount: %s",gitar.getBrand(),gitar.getModel(),gitar.getPrice(),gitar.getStock(),gitar.getOnSale());
-                System.out.printf("\n\n2.Gitar Elektrik\nBrand: %s \nModel: %s\nHarga: %d\nStock: %d\nDiscount: %s\n",gitarElektrik.getBrand(),gitarElektrik.getModel(),gitarElektrik.getPrice(),gitarElektrik.getStock(),gitarElektrik.getOnSale());
+                System.out.printf("1.Piano \nBrand: %s \nModel: %s\nHarga: %d\nStock: %d\nDiscount: %s",piano.getBrand(),piano.getModel(),piano.getPrice(),piano.getStock(),piano.getOnSale());
+                System.out.printf("\n\n2.Lampu \nBrand: %s \nModel: %s\nHarga: %d\nStock: %d\nDiscount: %s\n",lampu.getBrand(),lampu.getModel(),lampu.getPrice(),lampu.getStock(),lampu.getOnSale());
 
                 System.out.print("\nPilih item yang diinginkan: ");
                 item = input.nextInt();
@@ -60,19 +64,27 @@ public class App {
                     break;
                 }
                 if(item == 1){
-                    if(gitar.getOnSale() == Boolean.TRUE){
-                        System.out.printf("Selamat anda mendapatkan diskon sebanyak %d%%\n", (int)(gitar.getDiscount() * 100));
+                    if(piano.getOnSale() == Boolean.TRUE){
+                        System.out.printf("Selamat anda mendapatkan diskon sebanyak %d%%\n", (int)(piano.getDiscount() * 100));
                     }
-                    namaitem = "Gitar";
-                    stock = gitar.getStock();
+                    namaitem = "Piano";
+                    
+
+                    piano.updateStock(-stockUser); // update piano stock
+                    stock = piano.getStock(); // get updated piano stock
+
+                    
 
                 }
                 else if (item == 2) {
-                    if(gitarElektrik.getOnSale() == Boolean.TRUE){
-                        System.out.printf("Selamat anda mendapatkan diskon sebanyak %d%%\n", (int)(gitarElektrik.getDiscount() * 100));
+                    if(lampu.getOnSale() == Boolean.TRUE){
+                        System.out.printf("Selamat anda mendapatkan diskon sebanyak %d%%\n", (int)(lampu.getDiscount() * 100));
                     }
-                    namaitem = "Gitar Elektrik";
-                    stock = gitarElektrik.getStock();
+                    namaitem = "Lampu";
+                    
+
+                    lampu.updateStock(-stockUser); // update lampu stock
+                    stock = lampu.getStock(); // get updated lampu stock
                 }
 
                 System.out.print("Ingin membeli berapa buah?: ");
@@ -81,6 +93,8 @@ public class App {
                     System.out.println("Anda melebihi stock dari item.\n");
                     break;
                 }
+
+                stock -= stockUser;
                 System.out.print("Apakah anda mempunyai kode voucher? Y/N: ");
                 yesno = input.next().charAt(0);
                 input.nextLine();
@@ -96,15 +110,19 @@ public class App {
                 System.out.println("\nNama pembeli: " + nama);
                 System.out.printf("Nama item: %s\n", namaitem);
                 if(item == 1){
-                    kasir.setPrice((float)(gitar.getPrice() * stockUser));
-                    total = (int)kasir.getTotal();
-
+                    kasir.setPrice((float)(piano.getPrice() * stockUser));
+                    if(piano.getOnSale() == Boolean.TRUE){
+                        kasir.setDisc(piano.getDiscount());
+                    }
+                } else {
+                    kasir.setPrice((float)(lampu.getPrice() * stockUser));
+                    if(lampu.getOnSale() == Boolean.TRUE){
+                        kasir.setDisc(lampu.getDiscount());
+                    }
                 }
-                else {
-                    kasir.setPrice((float)(gitarElektrik.getPrice() * stockUser));
-                    total = (int)kasir.getTotal();
-                }
-                System.out.println("Harga total "+ total);
+                total += (int) kasir.getTotal();
+                System.out.printf("Harga total: %d\n", total);
+                System.out.printf("Anda telah membeli %d %s dengan total harga %d\n", stockUser, namaitem, (int) kasir.getTotal());
                 System.out.printf("Anda akan membeli %s sebanyak %d buah\n\n",namaitem,stockUser);
                 System.out.print("Masukkan uang anda: ");
                 duit = input.nextInt();

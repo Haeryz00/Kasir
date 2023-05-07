@@ -12,4 +12,15 @@ public class piano extends item implements musik{
         setPrice(5000000);
         setStock(5);
     }
+
+    @Override
+    public void updateStock(int quantity){
+        if(quantity > getStock()) {
+            System.out.println("Insufficient stock!");
+        } else {
+            setStock(getStock() - quantity);
+            System.out.println(quantity + " " + getModel() + " " + getBrand() + " purchased!");
+            System.out.println("New stock: " + getStock());
+        }
+    }
 }

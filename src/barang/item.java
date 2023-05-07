@@ -30,5 +30,9 @@ public abstract class item {
     public void setOnSale(Boolean onSale){this.onSale = onSale;}
     public Boolean getOnSale(){return onSale;}
 
+    public void updateStock(int quantity) {
+        stock -= quantity;
+    }
+
 }
 
