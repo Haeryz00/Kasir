@@ -27,7 +27,7 @@ public class App {
         stock -= stockUser;
 
         while (ulang == 1){
-                System.out.println("\nSelamat datang di Toko Mas Rusdi");
+                System.out.println("\nSelamat datang di Toko andiiiiiii");
                 System.out.print("Berbelanja sebagai Karyawan? Y/N: ");
                 yesno = input.next().charAt(0);
                 if(yesno == 'Y'|| yesno == 'y' || yesno == 'N' || yesno == 'n'){}
@@ -54,8 +54,8 @@ public class App {
 
                 System.out.println("Selamat datang tuan/putri "+ nama);
                 System.out.println("\nItem yang tersedia: ");
-                System.out.printf("1.Piano \nBrand: %s \nModel: %s\nHarga: %d\nStock: %d\nDiscount: %s",piano.getBrand(),piano.getModel(),piano.getPrice(),piano.getStock(),piano.getOnSale());
-                System.out.printf("\n\n2.Lampu \nBrand: %s \nModel: %s\nHarga: %d\nStock: %d\nDiscount: %s\n",lampu.getBrand(),lampu.getModel(),lampu.getPrice(),lampu.getStock(),lampu.getOnSale());
+                System.out.printf("1.Piano \nBrand: %s \nModel: %s\nHarga: %d\nStock awal: %d\nDiscount: %s",piano.getBrand(),piano.getModel(),piano.getPrice(),piano.getStock(),piano.getOnSale());
+                System.out.printf("\n\n2.Lampu \nBrand: %s \nModel: %s\nHarga: %d\nStock awal: %d\nDiscount: %s\n",lampu.getBrand(),lampu.getModel(),lampu.getPrice(),lampu.getStock(),lampu.getOnSale());
 
                 System.out.print("\nPilih item yang diinginkan: ");
                 item = input.nextInt();
@@ -70,7 +70,7 @@ public class App {
                     namaitem = "Piano";
                     
 
-                    piano.updateStock(-stockUser); // update piano stock
+                    piano.updateStock(stockUser); // update piano stock
                     stock = piano.getStock(); // get updated piano stock
 
                     
@@ -83,7 +83,7 @@ public class App {
                     namaitem = "Lampu";
                     
 
-                    lampu.updateStock(-stockUser); // update lampu stock
+                    lampu.updateStock(stockUser); // update lampu stock
                     stock = lampu.getStock(); // get updated lampu stock
                 }
 
