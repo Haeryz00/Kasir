@@ -27,7 +27,7 @@ public class App {
         stock -= stockUser;
 
         while (ulang == 1){
-                System.out.println("\nSelamat datang di Toko andiiiiiii");
+                System.out.println("\nSelamat datang di Toko Mas rusdi ngawi");
                 System.out.print("Berbelanja sebagai Karyawan? Y/N: ");
                 yesno = input.next().charAt(0);
                 if(yesno == 'Y'|| yesno == 'y' || yesno == 'N' || yesno == 'n'){}
