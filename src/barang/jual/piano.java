@@ -9,11 +9,19 @@ public class piano extends item implements musik{
 
     public piano(){
         setOnSale(Boolean.FALSE);
-        setDiscount(0.3F);
         setBrand("Yamaha");
         setModel("Whehe");
         setPrice(5000000);
         setStock(5);
+
+        double discount = 0.13F;
+        if (maxDiscount > 0.15 && discount > 0.15){
+            discount = 0.15;
+        } else if (maxDiscount <= 0.15 && discount > maxDiscount){
+            discount = maxDiscount;
+        }
+
+        setDiscount((float)discount);
     }
 
     @Override
