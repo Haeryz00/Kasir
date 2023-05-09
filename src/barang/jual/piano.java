@@ -4,6 +4,9 @@ import barang.item;
 import barang.musik;
 
 public class piano extends item implements musik{
+
+    double maxDiscount = musik.max_disc;
+
     public piano(){
         setOnSale(Boolean.FALSE);
         setDiscount(0.3F);
